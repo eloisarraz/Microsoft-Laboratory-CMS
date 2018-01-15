@@ -11,6 +11,9 @@ namespace MicrosoftLaboratoryCms.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Event> Events { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<ArticleArticleCategory> ArticleArticleCategory { get; set; }
+        public DbSet<ArticleCategory> ArticleCategories { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
