@@ -3,67 +3,198 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MicrosoftLaboratoryCms</title>
+    <title>@ViewData["Title"] - Laboratoire Microsoft</title>
+
+    <link rel="stylesheet" href="~/lib/uikit/css/uikit.min.css" />
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MicrosoftLaboratoryCms</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
+        <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+            <nav class="uk-navbar-container" uk-navbar="true" style="background-color: #062b58">
+                <div class="uk-navbar-left">
+
+                    <buthrefn class="uk-navbar-toggle uk-button-link"
+                            uk-toggle="target: #offcanvas-nav"
+                            style="border: none">
+                        <span uk-icon="icon: menu"></span>
+                        <span class="uk-margin-small-left">Menu</span>
+                    </buthrefn>
+
+                    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+                        <div class="uk-offcanvas-bar">
+
+                            <ul class="uk-nav uk-nav-default">
+                                <li class="uk-active"><a href="#">Active</a></li>
+                                <li class="uk-parent">
+                                    <a href="#">Parent</a>
+                                    <ul class="uk-nav-sub">
+                                        <li><a href="#">Sub item</a></li>
+                                        <li><a href="#">Sub item</a></li>
+                                    </ul>
+                                </li>
+                                <li class="uk-nav-header">Header</li>
+                                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
+                                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                <li class="uk-nav-divider"></li>
+                                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <a class="uk-navbar-item uk-logo" href="@Url.Action("Index", "Home")">
+                        <img src="/images/logoMSlab.svg" style="height: 50%; fill: white" alt="Microsoft Laboratoire Logo" />
+                        <span class="logo-text">Laboratoire Microsoft</span>
+                    </a>
+
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a href="/articles">Articles</a>
+                            <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2" uk-dropdown="offset: 0;animation: uk-animation-slide-hrefp-small; duration: 200">
+                                <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid="true">
+                                    <div>
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li class="uk-nav-header">Développement</li>
+                                            <li><a href="#">UWP</a></li>
+                                            <li><a href="#">Xamarin</a></li>
+                                            <li><a href="#">.Net/C++</a></li>
+                                            <li><a href="#">ASP.NET/TS</a></li>
+                                            <li><a href="#">Sharepoint</a></li>
+                                            <li><a href="#">Azure</a></li>
+                                            <li class="uk-nav-divider"></li>
+                                            <li><a href="#">Voir hrefus</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li class="uk-nav-header">Architecture</li>
+                                            <li><a href="#">Windows</a></li>
+                                            <li><a href="#">Windows Server</a></li>
+                                            <li><a href="#">Virtualisation</a></li>
+                                            <li><a href="#">Office</a></li>
+                                            <li><a href="#">Exchange</a></li>
+                                            <li><a href="#">Sharepoint</a></li>
+                                            <li><a href="#">Azure</a></li>
+                                            <li><a href="#">Scripts</a></li>
+                                            <li><a href="#">Power BI</a></li>
+                                            <li><a href="#">SQL Server</a></li>
+                                            <li class="uk-nav-divider"></li>
+                                            <li><a href="#">Voir hrefus</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="/events">&Eacute;vènements</a></li>
+                        <li>
+                            <a href="/students">&Eacute;tudiants</a>
+                            <div class="uk-navbar-dropdown" uk-dropdown="offset: 0;animation: uk-animation-slide-hrefp-small; duration: 200">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-nav-header">Laboratoire</li>
+                                    <li><a href="/laboratory-students">&Eacute;tudiants du laboratoire</a></li>
+                                    <li><a href="/laboratory-projects">Projets du laboratoire</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li class="uk-nav-header">&Eacute;tudiants</li>
+                                    <li><a href="/students-projects">Projets d'&eacute;tudiants</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="/about">&Agrave; propos</a></li>
+                        <li><a href="http://www.forum-microsoft.org/">Forum</a></li>
+                    </ul>
+
+                </div>
+                <div class="uk-navbar-right uk-margin-right">
+                    <div>
+                        <a class="uk-navbar-toggle" href="#">
+                            <span uk-icon="icon: search"></span>
+                        </a>
+                        <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                            <form class="uk-search uk-search-navbar uk-width-1-1">
+                                <input class="uk-search-input" type="search" placeholder="Rechercher..." auhrefFocus />
+                            </form>
+                        </div>
+                    </div>
+                    <ul class="uk-navbar-nav">
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        @RenderBody()
+        <div class="uk-section uk-section-muted">
+            <div class="uk-container">
+                <h3>Laboratoire Microsoft SUPINFO</h3>
+
+                <div class="uk-grid-match uk-child-width-1-3@m" uk-grid="true">
+                    <div>
+                        <ul class="uk-list">
+                            <li><a href="https://www.supinfo.com/ecole-informatique/">A propos de SUPINFO</a></li>
+                            <li><a href="https://www.supinfo.com/CGI/">Conditions d'utilisation & Copyright</a></li>
+                            <li><a href="https://www.supinfo.com/fr/respect_de_la_vie_privee.aspx">Respect de la vie privée</a></li>
+                            <li><a href="http://labo-microsoft.supinfo.com/qui-sommes-nous">Qui sommes-nous?</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Le laboratoire Microsoft de SUPINFO est maintenu par des étudiants passionés par les technologies Microsoft sous le contrôle de SUPINFO International University.</p>
+                    </div>
+                    <div>
+                        <ul class="uk-list">
+                            <li>
+                                <a href="https://github.com/supinfo-microsoft-laborahrefry">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M10,1 C5.03,1 1,5.03 1,10 C1,13.98 3.58,17.35 7.16,18.54 C7.61,18.62 7.77,18.34 7.77,18.11 C7.77,17.9 7.76,17.33 7.76,16.58 C5.26,17.12 4.73,15.37 4.73,15.37 C4.32,14.33 3.73,14.05 3.73,14.05 C2.91,13.5 3.79,13.5 3.79,13.5 C4.69,13.56 5.17,14.43 5.17,14.43 C5.97,15.8 7.28,15.41 7.79,15.18 C7.87,14.6 8.1,14.2 8.36,13.98 C6.36,13.75 4.26,12.98 4.26,9.53 C4.26,8.55 4.61,7.74 5.19,7.11 C5.1,6.88 4.79,5.97 5.28,4.73 C5.28,4.73 6.04,4.49 7.75,5.65 C8.47,5.45 9.24,5.35 10,5.35 C10.76,5.35 11.53,5.45 12.25,5.65 C13.97,4.48 14.72,4.73 14.72,4.73 C15.21,5.97 14.9,6.88 14.81,7.11 C15.39,7.74 15.73,8.54 15.73,9.53 C15.73,12.99 13.63,13.75 11.62,13.97 C11.94,14.25 12.23,14.8 12.23,15.64 C12.23,16.84 12.22,17.81 12.22,18.11 C12.22,18.35 12.38,18.63 12.84,18.54 C16.42,17.35 19,13.98 19,10 C19,5.03 14.97,1 10,1 L10,1 Z"></path></svg>
+                                    &nbsp;Github
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/labomicrosoft/">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M11,10h2.6l0.4-3H11V5.3c0-0.9,0.2-1.5,1.5-1.5H14V1.1c-0.3,0-1-0.1-2.1-0.1C9.6,1,8,2.4,8,5v2H5.5v3H8v8h3V10z"></path></svg>
+                                    &nbsp;Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/labmicrosoft">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M19,4.74 C18.339,5.029 17.626,5.229 16.881,5.32 C17.644,4.86 18.227,4.139 18.503,3.28 C17.79,3.7 17.001,4.009 16.159,4.17 C15.485,3.45 14.526,3 13.464,3 C11.423,3 9.771,4.66 9.771,6.7 C9.771,6.99 9.804,7.269 9.868,7.539 C6.795,7.38 4.076,5.919 2.254,3.679 C1.936,4.219 1.754,4.86 1.754,5.539 C1.754,6.82 2.405,7.95 3.397,8.61 C2.79,8.589 2.22,8.429 1.723,8.149 L1.723,8.189 C1.723,9.978 2.997,11.478 4.686,11.82 C4.376,11.899 4.049,11.939 3.713,11.939 C3.475,11.939 3.245,11.919 3.018,11.88 C3.49,13.349 4.852,14.419 6.469,14.449 C5.205,15.429 3.612,16.019 1.882,16.019 C1.583,16.019 1.29,16.009 1,15.969 C2.635,17.019 4.576,17.629 6.662,17.629 C13.454,17.629 17.17,12 17.17,7.129 C17.17,6.969 17.166,6.809 17.157,6.649 C17.879,6.129 18.504,5.478 19,4.74"></path></svg>
+                                    &nbsp;Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/user/LaborahrefireMicrosoft">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> <path d="M15,4.1c1,0.1,2.3,0,3,0.8c0.8,0.8,0.9,2.1,0.9,3.1C19,9.2,19,10.9,19,12c-0.1,1.1,0,2.4-0.5,3.4c-0.5,1.1-1.4,1.5-2.5,1.6 c-1.2,0.1-8.6,0.1-11,0c-1.1-0.1-2.4-0.1-3.2-1c-0.7-0.8-0.7-2-0.8-3C1,11.8,1,10.1,1,8.9c0-1.1,0-2.4,0.5-3.4C2,4.5,3,4.3,4.1,4.2 C5.3,4.1,12.6,4,15,4.1z M8,7.5v6l5.5-3L8,7.5z"></path></svg>
+                                    &nbsp;Youtube
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center">
+                    Copyright © 2017 Laboratoire Microsoft – SUPINFO International University
+                    <br />
+                    SUPINFO International University
+                </p>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - MicrosoftLaboratoryCms</p>
-        </footer>
-    </div>
 
+    <script src="~/lib/jquery/dist/jquery.min.js">
+    </script>
+    <script src="~/lib/uikit/js/uikit.min.js">
+    </script>
+    <script src="~/lib/uikit/js/uikit-icons.min.js">
+    </script>
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        /**/
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 

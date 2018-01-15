@@ -1,35 +1,47 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.uk-search-navbar > .uk-search-input {
+    color: white;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.uk-logo > .logo-text {
+    color: white;
+    vertical-align: center;
+    margin: 0px 10px 0px 10px;
+    font-size: 100%;
+    font-family: "Segoe UI Semilight";
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+    .uk-logo > .logo-text:hover, .logo-text:focus {
+        color: lightblue;
     }
+
+.uk-navbar-nav > li > a {
+    color: white;
+}
+
+    .uk-navbar-nav > li > a:focus {
+        color: lightblue;
+    }
+
+    .uk-navbar-nav > li > a:hover {
+        color: lightblue;
+    }
+
+.uk-navbar-nav > li.uk-active > a {
+    color: lightblue;
+}
+
+.uk-navbar-toggle {
+    color: white;
+}
+
+.uk-navbar-toggle {
+    color: white;
+}
+
+    .uk-navbar-toggle:focus {
+        color: white;
+    }
+
+.uk-navbar-nav > li > a.active {
+    color: lightblue;
 }
